@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5689C58C-530D-40D5-8D08-240AB403F2AF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NextBreadDemo1._0</RootNamespace>
+    <AssemblyName>NextBreadDemo1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conexion\ConexionBD.cs" />
+    <Compile Include="Entidades\Inventario.cs" />
+    <Compile Include="Entidades\Proveedor.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ExcepcionInterna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ExcepcionInterna.Designer.cs">
+      <DependentUpon>Frm_ExcepcionInterna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ProcesoExitoso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ProcesoExitoso.Designer.cs">
+      <DependentUpon>Frm_ProcesoExitoso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ProcesoFallido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ProcesoFallido.Designer.cs">
+      <DependentUpon>Frm_ProcesoFallido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Avisos\Inventario\Frm_ExcepcionInventario1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Avisos\Inventario\Frm_ExcepcionInventario1.Designer.cs">
+      <DependentUpon>Frm_ExcepcionInventario1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ExcepcionCampoNull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ExcepcionCampoNull.Designer.cs">
+      <DependentUpon>Frm_ExcepcionCampoNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ExcepcionDuplicados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Avisos\Generales\Frm_ExcepcionDuplicados.Designer.cs">
+      <DependentUpon>Frm_ExcepcionDuplicados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Inventario\Frm_BuscarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inventario\Frm_BuscarProducto.Designer.cs">
+      <DependentUpon>Frm_BuscarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Inventario\Frm_EditarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inventario\Frm_EditarProductos.Designer.cs">
+      <DependentUpon>Frm_EditarProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Inventario\Frm_Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inventario\Frm_Inventario.Designer.cs">
+      <DependentUpon>Frm_Inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Proveedor\Frm_EditarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Proveedor\Frm_EditarProveedor.Designer.cs">
+      <DependentUpon>Frm_EditarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Proveedor\Frm_Proveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Proveedor\Frm_Proveedor.Designer.cs">
+      <DependentUpon>Frm_Proveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IntInventario.cs" />
+    <Compile Include="Interfaces\IntProveedor.cs" />
+    <Compile Include="Interfaces\IntUsuario.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\ModuloInventario.cs" />
+    <Compile Include="Servicios\ModuloProveedor.cs" />
+    <Compile Include="Servicios\ModuloSeguridad.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Avisos\Generales\Frm_ExcepcionInterna.resx">
+      <DependentUpon>Frm_ExcepcionInterna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Avisos\Generales\Frm_ProcesoExitoso.resx">
+      <DependentUpon>Frm_ProcesoExitoso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Avisos\Generales\Frm_ProcesoFallido.resx">
+      <DependentUpon>Frm_ProcesoFallido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Avisos\Inventario\Frm_ExcepcionInventario1.resx">
+      <DependentUpon>Frm_ExcepcionInventario1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Avisos\Generales\Frm_ExcepcionCampoNull.resx">
+      <DependentUpon>Frm_ExcepcionCampoNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Avisos\Generales\Frm_ExcepcionDuplicados.resx">
+      <DependentUpon>Frm_ExcepcionDuplicados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inventario\Frm_BuscarProducto.resx">
+      <DependentUpon>Frm_BuscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inventario\Frm_EditarProductos.resx">
+      <DependentUpon>Frm_EditarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inventario\Frm_Inventario.resx">
+      <DependentUpon>Frm_Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Proveedor\Frm_EditarProveedor.resx">
+      <DependentUpon>Frm_EditarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Proveedor\Frm_Proveedor.resx">
+      <DependentUpon>Frm_Proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Imagenes\icons8-add-product-96.png" />
+    <None Include="Imagenes\IconoUsuario1.png" />
+    <Content Include="Imagenes\NextBreadIcono.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

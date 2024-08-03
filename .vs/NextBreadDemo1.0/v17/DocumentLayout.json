@@ -1,0 +1,99 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|c:\\users\\usuario\\desktop\\nextbreaddemo1.0\\nextbreaddemo1.0\\servicios\\moduloproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\servicios\\moduloproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|c:\\users\\usuario\\desktop\\nextbreaddemo1.0\\nextbreaddemo1.0\\forms\\proveedor\\frm_proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\forms\\proveedor\\frm_proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\nextbreaddemo1.0\\forms\\proveedor\\frm_editarproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\forms\\proveedor\\frm_editarproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\nextbreaddemo1.0\\forms\\proveedor\\frm_editarproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\forms\\proveedor\\frm_editarproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Frm_Proveedor.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Proveedor\\Frm_Proveedor.cs",
+              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Forms\\Proveedor\\Frm_Proveedor.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Proveedor\\Frm_Proveedor.cs",
+              "RelativeToolTip": "NextBreadDemo1.0\\Forms\\Proveedor\\Frm_Proveedor.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAAAEEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-03T04:40:02.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Frm_EditarProveedor.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Proveedor\\Frm_EditarProveedor.cs",
+              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Forms\\Proveedor\\Frm_EditarProveedor.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Proveedor\\Frm_EditarProveedor.cs",
+              "RelativeToolTip": "NextBreadDemo1.0\\Forms\\Proveedor\\Frm_EditarProveedor.cs",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAAALkAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T19:32:59.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ModuloProveedor.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Servicios\\ModuloProveedor.cs",
+              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Servicios\\ModuloProveedor.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Servicios\\ModuloProveedor.cs",
+              "RelativeToolTip": "NextBreadDemo1.0\\Servicios\\ModuloProveedor.cs",
+              "ViewState": "AQIAAKgAAAAAAAAAAAAAALUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T19:33:06.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Frm_EditarProveedor.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Proveedor\\Frm_EditarProveedor.cs",
+              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Forms\\Proveedor\\Frm_EditarProveedor.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Proveedor\\Frm_EditarProveedor.cs [Dise\u00F1o]",
+              "RelativeToolTip": "NextBreadDemo1.0\\Forms\\Proveedor\\Frm_EditarProveedor.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-27T07:23:00.798Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
