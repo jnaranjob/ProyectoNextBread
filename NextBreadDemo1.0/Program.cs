@@ -1,4 +1,7 @@
-﻿using NextBreadDemo1._0.Forms.Inventario;
+﻿using NextBreadDemo1._0.Forms.Avisos.Inventario;
+using NextBreadDemo1._0.Forms.Caja_Registradora;
+using NextBreadDemo1._0.Forms.Inventario;
+using NextBreadDemo1._0.Forms.Seguridad;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +20,7 @@ namespace NextBreadDemo1._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Inventario());
+            Application.Run(new Frm_Login());
         }
     }
 }

@@ -101,7 +101,7 @@ namespace NextBreadDemo1._0.Servicios
             }
         }
 
-        public void editarProveedor(string nombre, bool estado, string nombreUsuario)
+        public void editarProveedor(int codigo, string nombre, bool estado, string nombreUsuario)
         {
 
             Boolean tipoPermiso = moduloSeguridad.validarPermiso(nombreUsuario);
@@ -155,14 +155,16 @@ namespace NextBreadDemo1._0.Servicios
                         }
                     }
 
-                    string queryDB = "UPDATE Proveedor SET Nombre = @Nombre, Estado = @Estado, IdUsuario = @IdUsuario WHERE Nombre = @Nombre";
+                    string queryDB = "UPDATE Proveedor SET Nombre = @Nombre, Estado = @Estado, IdUsuario = @IdUsuario WHERE IdProveedor = @IdProveedor";
 
                     using (SqlCommand DBSQL = new SqlCommand(queryDB, ConexionBD.Instancia.GetConnection()))
-                    { 
+                    {
 
                         DBSQL.Parameters.AddWithValue("@Nombre", nombre);
                         DBSQL.Parameters.AddWithValue("@Estado", estado);
                         DBSQL.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                        DBSQL.Parameters.AddWithValue("@IdProveedor", codigo);
+
                         DBSQL.ExecuteNonQuery();
 
                         MostrarProcesoExitoso();

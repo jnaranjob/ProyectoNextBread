@@ -11,7 +11,7 @@ namespace NextBreadDemo1._0.Interfaces
 
         void agregarProveedor(string nombre, Boolean estado, string nombreUsuario);
 
-        void editarProveedor(string nombre, Boolean estado, string nombreUsuario);
+        void editarProveedor(int codigo, string nombre, Boolean estado, string nombreUsuario);
 
     }
 }

@@ -25,60 +25,73 @@ namespace NextBreadDemo1._0.Forms.Proveedor
         private static Frm_ExcepcionInventario1 excepcionInventarioForm;
         private static Frm_ExcepcionCampoNull procesoFallidoInventario;
         private IntProveedor _Proveedor;
+        private IntUsuario moduloSeguridad;
 
         public Frm_EditarProveedor()
         {
             InitializeComponent();
             CargarDatosYConfigurarDGV();
             _Proveedor = new ModuloProveedor();
+            moduloSeguridad = new ModuloSeguridad();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Btn_Regresar_Click(object sender, EventArgs e)
         {
-            Frm_Proveedor newForm = new Frm_Proveedor();
-            newForm.Show();
-            this.Hide();
+            Frm_PantallaCarga pantallaCarga = (Frm_PantallaCarga)Application.OpenForms["Frm_PantallaCarga"];
+            if (pantallaCarga != null)
+            {
+                pantallaCarga.Frm_Proveedor.Show();
+                this.Hide();
+            }
         }
 
         private void Btn_Limpiar_Click(object sender, EventArgs e)
         {
+            Txt_Codigo.Clear();
             Txt_NombreProveedor.Clear();
+            Cb_EstadoProveedor.SelectedIndex = -1;
         }
 
         private void CargarDatosYConfigurarDGV()
         {
             try
             {
-                if (ConexionBD.Instancia != null)
-                {
-                    ConexionBD.Instancia.AbrirConexion();
 
-                    if (ConexionBD.Instancia.GetConnection().State == System.Data.ConnectionState.Open)
+                ConexionBD conexionBD = new ConexionBD();
+
+                using (SqlConnection connection = conexionBD.CrearNuevaConexion())
+                {
+                    connection.Open();
+
+                    if (connection.State == System.Data.ConnectionState.Open)
                     {
                         if (Dgv_ProveedoresRegistrados != null)
                         {
-                            SqlCommand cmd = new SqlCommand("SELECT IdProveedor, Nombre, Estado FROM Proveedor", ConexionBD.Instancia.GetConnection());
-                            SqlDataAdapter da = new SqlDataAdapter(cmd);
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-
-                            Dgv_ProveedoresRegistrados.DataSource = dt;
-
-                            if (Dgv_ProveedoresRegistrados.Columns.Contains("IdProveedor") &&
-                                Dgv_ProveedoresRegistrados.Columns.Contains("Nombre") &&
-                                Dgv_ProveedoresRegistrados.Columns.Contains("Estado"))
+                            using (SqlCommand cmd = new SqlCommand("SELECT IdProveedor, Nombre, Estado FROM Proveedor", connection))
                             {
-                                Dgv_ProveedoresRegistrados.Columns["IdProveedor"].HeaderText = "ID Proveedor";
-                                Dgv_ProveedoresRegistrados.Columns["Nombre"].HeaderText = "Nombre Proveedor";
-                                Dgv_ProveedoresRegistrados.Columns["Estado"].HeaderText = "Estado Actual Proveedor";
+                                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                                {
+                                    DataTable dt = new DataTable();
+                                    da.Fill(dt);
+                                    Dgv_ProveedoresRegistrados.DataSource = dt;
 
-                                Dgv_ProveedoresRegistrados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                            }
-                            else
-                            {
-                                MostrarExcepcionInterna();
-                                return;
+                                    if (Dgv_ProveedoresRegistrados.Columns.Contains("IdProveedor") &&
+                                        Dgv_ProveedoresRegistrados.Columns.Contains("Nombre") &&
+                                        Dgv_ProveedoresRegistrados.Columns.Contains("Estado"))
+                                    {
+                                        Dgv_ProveedoresRegistrados.Columns["IdProveedor"].HeaderText = "ID Proveedor";
+                                        Dgv_ProveedoresRegistrados.Columns["Nombre"].HeaderText = "Nombre Proveedor";
+                                        Dgv_ProveedoresRegistrados.Columns["Estado"].HeaderText = "Estado Actual Proveedor";
+
+                                        Dgv_ProveedoresRegistrados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                                    }
+                                    else
+                                    {
+                                        MostrarExcepcionInterna();
+                                        return;
+                                    }
+                                }
                             }
                         }
                         else
@@ -92,22 +105,11 @@ namespace NextBreadDemo1._0.Forms.Proveedor
                         MostrarExcepcionInterna();
                     }
                 }
-                else
-                {
-                    MostrarExcepcionInterna();
-                }
             }
             catch (Exception ex)
             {
                 MostrarExcepcionInterna();
-                MessageBox.Show("Error al guardar el proveedor: " + ex.Message);
-            }
-            finally
-            {
-                if (ConexionBD.Instancia != null)
-                {
-                    ConexionBD.Instancia.CerrarConexion();
-                }
+                MessageBox.Show("Error al cargar los proveedores: " + ex.Message);
             }
         }
 
@@ -121,9 +123,11 @@ namespace NextBreadDemo1._0.Forms.Proveedor
 
                     if (selectedRow.Cells["Nombre"].Value != null)
                     {
+                        string codigo = selectedRow.Cells["IdProveedor"].Value.ToString();
                         string nombreProveedor = selectedRow.Cells["Nombre"].Value.ToString();
                         bool estado = Convert.ToBoolean(selectedRow.Cells["Estado"].Value);
 
+                        Txt_Codigo.Text = codigo;
                         Cb_EstadoProveedor.SelectedItem = estado ? "Activo" : "Inactivo";
                         Txt_NombreProveedor.Text = nombreProveedor;
                     }
@@ -159,6 +163,7 @@ namespace NextBreadDemo1._0.Forms.Proveedor
 
             try
             {
+                int codigo = int.Parse(Txt_Codigo.Text);
                 string nombre = Txt_NombreProveedor.Text;
                 Boolean estado = true;
                 string nombreUsuario = Lbl_Usuario.Text;
@@ -180,8 +185,9 @@ namespace NextBreadDemo1._0.Forms.Proveedor
                     estado = false;
                 }
 
-                _Proveedor.editarProveedor(nombre, estado, nombreUsuario);
+                _Proveedor.editarProveedor(codigo, nombre, estado, nombreUsuario);
                 Txt_NombreProveedor.Clear();
+                Cb_EstadoProveedor.SelectedIndex = -1;
                 Txt_NombreProveedor.Focus();
             }
             catch (Exception)
@@ -195,5 +201,26 @@ namespace NextBreadDemo1._0.Forms.Proveedor
             procesoFallidoInventario = new Frm_ExcepcionCampoNull();
             procesoFallidoInventario.ShowDialog();
         }
+
+        private void Frm_EditarProveedor_Load(object sender, EventArgs e)
+        {
+            permisos();
+        }
+
+        private void permisos()
+        {
+            Boolean tipoPermiso = moduloSeguridad.validarPermiso(Lbl_Usuario.Text);
+            if (tipoPermiso == false)
+            {
+                Txt_Codigo.Enabled = false;
+                Txt_NombreProveedor.Enabled = false;
+                Cb_EstadoProveedor.Enabled = false;
+
+                Btn_AgregarProveedor.Enabled = false;
+                Btn_Limpiar.Enabled = false;
+                Btn_AsignarProveedor.Enabled = false;
+            }
+        }
+
     }
 }

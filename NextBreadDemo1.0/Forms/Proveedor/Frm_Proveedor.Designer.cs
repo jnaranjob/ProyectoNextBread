@@ -43,8 +43,10 @@
             this.administrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Btn_RegresarCaja = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.Btn_Regresar = new System.Windows.Forms.Button();
+            this.Btn_RegresarInventario = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.Btn_AgregarProveedor = new System.Windows.Forms.Button();
@@ -191,36 +193,62 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel8.Controls.Add(this.label3);
+            this.panel8.Controls.Add(this.Btn_RegresarCaja);
             this.panel8.Controls.Add(this.label8);
-            this.panel8.Controls.Add(this.Btn_Regresar);
+            this.panel8.Controls.Add(this.Btn_RegresarInventario);
             this.panel8.Location = new System.Drawing.Point(3, 132);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(220, 113);
             this.panel8.TabIndex = 12;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(132, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 34);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Regresar\r\n  a Caja";
+            // 
+            // Btn_RegresarCaja
+            // 
+            this.Btn_RegresarCaja.BackColor = System.Drawing.Color.White;
+            this.Btn_RegresarCaja.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_RegresarCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_RegresarCaja.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_RegresarCaja.Image = ((System.Drawing.Image)(resources.GetObject("Btn_RegresarCaja.Image")));
+            this.Btn_RegresarCaja.Location = new System.Drawing.Point(133, 14);
+            this.Btn_RegresarCaja.Name = "Btn_RegresarCaja";
+            this.Btn_RegresarCaja.Size = new System.Drawing.Size(60, 58);
+            this.Btn_RegresarCaja.TabIndex = 14;
+            this.Btn_RegresarCaja.UseVisualStyleBackColor = false;
+            this.Btn_RegresarCaja.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(66, 73);
+            this.label8.Location = new System.Drawing.Point(17, 75);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 34);
+            this.label8.Size = new System.Drawing.Size(71, 34);
             this.label8.TabIndex = 13;
-            this.label8.Text = "  Regresar\r\na Inventario";
+            this.label8.Text = "     Ir a \r\nInventario";
             // 
-            // Btn_Regresar
+            // Btn_RegresarInventario
             // 
-            this.Btn_Regresar.BackColor = System.Drawing.Color.White;
-            this.Btn_Regresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Regresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Regresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Btn_Regresar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Regresar.Image")));
-            this.Btn_Regresar.Location = new System.Drawing.Point(80, 12);
-            this.Btn_Regresar.Name = "Btn_Regresar";
-            this.Btn_Regresar.Size = new System.Drawing.Size(60, 58);
-            this.Btn_Regresar.TabIndex = 11;
-            this.Btn_Regresar.UseVisualStyleBackColor = false;
-            this.Btn_Regresar.Click += new System.EventHandler(this.Btn_Regresar_Click);
+            this.Btn_RegresarInventario.BackColor = System.Drawing.Color.White;
+            this.Btn_RegresarInventario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_RegresarInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_RegresarInventario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_RegresarInventario.Image = ((System.Drawing.Image)(resources.GetObject("Btn_RegresarInventario.Image")));
+            this.Btn_RegresarInventario.Location = new System.Drawing.Point(20, 14);
+            this.Btn_RegresarInventario.Name = "Btn_RegresarInventario";
+            this.Btn_RegresarInventario.Size = new System.Drawing.Size(60, 58);
+            this.Btn_RegresarInventario.TabIndex = 11;
+            this.Btn_RegresarInventario.UseVisualStyleBackColor = false;
+            this.Btn_RegresarInventario.Click += new System.EventHandler(this.Btn_Regresar_Click);
             // 
             // panel7
             // 
@@ -297,6 +325,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_Proveedor";
+            this.Load += new System.EventHandler(this.Frm_Proveedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Usuario)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -318,7 +347,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox Pb_Usuario;
-        private System.Windows.Forms.Label Lbl_Usuario;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox Txt_NombreProveedor;
@@ -332,11 +360,14 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button Btn_Regresar;
+        private System.Windows.Forms.Button Btn_RegresarInventario;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button Btn_AgregarProveedor;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button Btn_Limpiar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Btn_RegresarCaja;
+        public System.Windows.Forms.Label Lbl_Usuario;
     }
 }

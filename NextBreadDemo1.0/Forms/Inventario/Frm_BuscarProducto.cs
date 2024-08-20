@@ -41,7 +41,7 @@ namespace NextBreadDemo1._0.Forms.Inventario
 
             if (!string.IsNullOrEmpty(criterio))
             {
-                // Filtrar datos en el DataGridView del formulario de edición
+                
                 frmEditarProductos.FiltrarDatos(criterio);
             }
 

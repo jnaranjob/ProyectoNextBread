@@ -550,7 +550,6 @@
         private System.Windows.Forms.TextBox Txt_ProveedorProducto;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.MaskedTextBox Txt_CantidadProducto;
-        private System.Windows.Forms.Label Lbl_Usuario;
         private System.Windows.Forms.PictureBox Pb_Usuario;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
@@ -575,5 +574,6 @@
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem agregarProveedoresToolStripMenuItem;
         private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label Lbl_Usuario;
     }
 }

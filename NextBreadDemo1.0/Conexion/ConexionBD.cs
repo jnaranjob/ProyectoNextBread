@@ -16,10 +16,15 @@ namespace NextBreadDemo1._0.Conexion
 
         private SqlConnection conexion;
 
-        private ConexionBD()
+        public ConexionBD()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["Panaderia"].ConnectionString;
             conexion = new SqlConnection(connectionString);
+        }
+        public SqlConnection CrearNuevaConexion()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["Panaderia"].ConnectionString;
+            return new SqlConnection(connectionString);
         }
 
         public static ConexionBD Instancia

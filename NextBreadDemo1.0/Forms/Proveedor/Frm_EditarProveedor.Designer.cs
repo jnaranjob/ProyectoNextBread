@@ -31,9 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_EditarProveedor));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Txt_Codigo = new System.Windows.Forms.TextBox();
             this.Txt_NombreProveedor = new System.Windows.Forms.TextBox();
             this.Cb_EstadoProveedor = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -53,8 +55,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.Dgv_ProveedoresRegistrados = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Txt_Codigo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -88,6 +88,15 @@
             this.panel3.Size = new System.Drawing.Size(288, 162);
             this.panel3.TabIndex = 7;
             // 
+            // Txt_Codigo
+            // 
+            this.Txt_Codigo.Enabled = false;
+            this.Txt_Codigo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Codigo.Location = new System.Drawing.Point(6, 14);
+            this.Txt_Codigo.Name = "Txt_Codigo";
+            this.Txt_Codigo.Size = new System.Drawing.Size(135, 25);
+            this.Txt_Codigo.TabIndex = 9;
+            // 
             // Txt_NombreProveedor
             // 
             this.Txt_NombreProveedor.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,6 +127,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(171, 162);
             this.panel2.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(7, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 17);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Codigo del Proveedor";
             // 
             // label1
             // 
@@ -330,25 +349,6 @@
             this.Dgv_ProveedoresRegistrados.Size = new System.Drawing.Size(459, 132);
             this.Dgv_ProveedoresRegistrados.TabIndex = 0;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 17);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Nombre del Proveedor";
-            // 
-            // Txt_Codigo
-            // 
-            this.Txt_Codigo.Enabled = false;
-            this.Txt_Codigo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Codigo.Location = new System.Drawing.Point(6, 14);
-            this.Txt_Codigo.Name = "Txt_Codigo";
-            this.Txt_Codigo.Size = new System.Drawing.Size(135, 25);
-            this.Txt_Codigo.TabIndex = 9;
-            // 
             // Frm_EditarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,6 +362,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_EditarProveedor";
+            this.Load += new System.EventHandler(this.Frm_EditarProveedor_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -401,7 +402,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button Btn_Limpiar;
         private System.Windows.Forms.PictureBox Pb_Usuario;
-        private System.Windows.Forms.Label Lbl_Usuario;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel5;
@@ -410,5 +410,6 @@
         private System.Windows.Forms.Button Btn_AsignarProveedor;
         private System.Windows.Forms.TextBox Txt_Codigo;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label Lbl_Usuario;
     }
 }

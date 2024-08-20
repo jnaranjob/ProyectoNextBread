@@ -19,3 +19,15 @@ C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDe
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Inventario.Frm_ExcepcionDuplicados.resources
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Inventario.Frm_ExcepcionCampoNull.resources
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Proveedor.Frm_EditarProveedor.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Generales.Frm_ProductoInactivo.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Caja_Registradora.Frm_CajaRegistradora.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Seguridad.Frm_Login.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Seguridad.Frm_ModuloSeguridad.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Seguridad.Frm_RecuperarClave.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Seguridad.Frm_CredencialesSeguridad.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Generales.Frm_PantallaCarga.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Generales.Frm_ErrorLoginClave.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Generales.Frm_ErrorLoginUsuario.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Seguridad.Frm_ErrorUsuarioDesactivado.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Seguridad.Frm_PermisosInsuficientes.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Seguridad.Frm_UsuarioDuplicado.resources

@@ -47,6 +47,7 @@
             this.Pb_Usuario = new System.Windows.Forms.PictureBox();
             this.Lbl_Usuario = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.Dgv_ProductosRegistrados = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -64,7 +65,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.Btn_Buscar = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -173,6 +173,7 @@
             this.Cb_EstadoProducto.Name = "Cb_EstadoProducto";
             this.Cb_EstadoProducto.Size = new System.Drawing.Size(135, 25);
             this.Cb_EstadoProducto.TabIndex = 8;
+            this.Cb_EstadoProducto.SelectedIndexChanged += new System.EventHandler(this.Cb_EstadoProducto_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -277,6 +278,16 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(679, 172);
             this.panel4.TabIndex = 10;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(273, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(146, 17);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Productos Registrados";
             // 
             // panel5
             // 
@@ -471,16 +482,6 @@
             this.Btn_Buscar.UseVisualStyleBackColor = false;
             this.Btn_Buscar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(273, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(146, 17);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Productos Registrados";
-            // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
@@ -633,7 +634,6 @@
         private System.Windows.Forms.Label Lbl_CodigoP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox Pb_Usuario;
-        private System.Windows.Forms.Label Lbl_Usuario;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView Dgv_ProductosRegistrados;
@@ -661,5 +661,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
+        public System.Windows.Forms.Label Lbl_Usuario;
     }
 }

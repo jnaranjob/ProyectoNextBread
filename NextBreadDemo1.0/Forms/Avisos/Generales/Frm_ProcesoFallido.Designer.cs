@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ProcesoFallido));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Btn_Aceptar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Btn_Aceptar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,20 @@
             this.label1.Text = "Hubo uno o mas errores en el proceso realizado.\r\n       Los datos no se cargaron " +
     "o actualizaron \r\n             correctamente intente de nuevo.";
             // 
+            // Btn_Aceptar
+            // 
+            this.Btn_Aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.Btn_Aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Aceptar.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Aceptar.ForeColor = System.Drawing.SystemColors.Window;
+            this.Btn_Aceptar.Location = new System.Drawing.Point(160, 210);
+            this.Btn_Aceptar.Name = "Btn_Aceptar";
+            this.Btn_Aceptar.Size = new System.Drawing.Size(75, 38);
+            this.Btn_Aceptar.TabIndex = 0;
+            this.Btn_Aceptar.Text = "Aceptar";
+            this.Btn_Aceptar.UseVisualStyleBackColor = false;
+            this.Btn_Aceptar.Click += new System.EventHandler(this.Btn_Aceptar_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -80,24 +94,11 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Proceso Fallido";
             // 
-            // Btn_Aceptar
-            // 
-            this.Btn_Aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.Btn_Aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Aceptar.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Aceptar.ForeColor = System.Drawing.SystemColors.Window;
-            this.Btn_Aceptar.Location = new System.Drawing.Point(160, 210);
-            this.Btn_Aceptar.Name = "Btn_Aceptar";
-            this.Btn_Aceptar.Size = new System.Drawing.Size(75, 38);
-            this.Btn_Aceptar.TabIndex = 0;
-            this.Btn_Aceptar.Text = "Aceptar";
-            this.Btn_Aceptar.UseVisualStyleBackColor = false;
-            this.Btn_Aceptar.Click += new System.EventHandler(this.Btn_Aceptar_Click);
-            // 
             // Frm_ProcesoFallido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(424, 290);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

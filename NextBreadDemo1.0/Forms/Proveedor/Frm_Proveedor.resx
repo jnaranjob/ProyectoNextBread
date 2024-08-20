@@ -170,7 +170,7 @@
         QmCC
 </value>
   </data>
-  <data name="Btn_Regresar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Btn_RegresarCaja.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAYxJREFUaEPtl10uBEEYRSfhzV/CDgjBA2IDxF6wAMSrBWA7CF7YA4JV4FU4N3Ty
@@ -181,6 +181,24 @@
         gQPMhm204eU8ZsEcvqINf4FZoPD3aMPrZW4Nk2cH/ZmXp5gkelCtou42fsNWRn3QCD+Ap+3jg1T4aYzC
         D+Jp+3idWvNaNlFnvsIP5mn7uFffxhvYGD+gp83jejl7QD1h9ZBawEKhUCgUhtDrfQPnep9qOdkEBgAA
         AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="Btn_RegresarInventario.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EAAACxABrSO9dQAAAsRJREFUaEPtmD2I1EAUxyOIBzZWamVhYSNYutvYibt+wAWRO0EONuHgwOLAa9Rj
+        k4uNepdZRQtRQSzcAxs7O7lGEQQ7Wyvx/Cq10UJ0nJf8WS/JE5LJW08hP/g3L8v88jIzm511GhoaGhrE
+        8UKle6H67IXxQ3/x8k6UWfRt57jJur7jaNHQmHedY9BUgxoYJYjXUGYZy83/zltoquMFK/vSWVB6pq/2
+        olyAkRbywHN0fDKboc9/Nh9o7OgF8RMspxMoFeCk+QyZBlZNjftsPtDYYZbPPWrA78dnUSrASSUDjR2m
+        gSidgfgKSgU4qWSgscNfUj428ipKBTipZKCxoxcODiczEKhnKBXgpJKBxg76JsISeoNSAU4qGWjsmJ+/
+        OWFeZj/NDHyPomgryhk4qWSgscc8/U/JPugP9qCUgZNKBhp7zLvgJTXg9weHUMrw4ryjxxlo7PEC9Qjf
+        RGdQysBJJQONPWYJXcdGvohSBm7aJQONPX6gFpIGgvgWShk4qWSgscc8+VPpDKjHKGXgpPls2o85wtz8
+        wXQPqFcoZeCk+WzajzlidvHG7rSB+AtKGTipZKCpg95iXmZfqYm5C8s7UBzBSSUDTT3M+n+dzsK1AyiN
+        4KSSgaYeZvmsUQPcwYaTSgaaepiv0PvUAHew4aSSgaYe5slfSmegeLD5Zw/1G+ktqdl0DxQPNvTXB4ly
+        YonQmEehqYcXDo6kDajnKDn66YT+24G6OjOR2mXOBD9MA9/8ULWpxgnGneRmbDH7YJjMAsIJxh3cih1z
+        UbTdvNAGZibW/8sG/sT+qalt7c7kismHVtd93+pOLlMNlyshOVZpSNLuunpjqIbLlZAcqzT0tEh0eiHU
+        0yaJuON+xOVKSI5VGppqEpFw+lwqbXXcd7hcCcmxSsNPu3sVlyshOVZpaJORON109Tex1FgNDQ0NDSVw
+        nF9GUSESCnhntwAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="Btn_AgregarProveedor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

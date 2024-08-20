@@ -2,6 +2,7 @@
 using NextBreadDemo1._0.Forms.Avisos;
 using NextBreadDemo1._0.Forms.Avisos.Generales;
 using NextBreadDemo1._0.Forms.Avisos.Inventario;
+using NextBreadDemo1._0.Forms.Caja_Registradora;
 using NextBreadDemo1._0.Forms.Proveedor;
 using NextBreadDemo1._0.Interfaces;
 using NextBreadDemo1._0.Servicios;
@@ -22,6 +23,7 @@ namespace NextBreadDemo1._0.Forms.Inventario
     public partial class Frm_Inventario : Form
     {
         private IntInventario _Inventario;
+        private IntUsuario moduloSeguridad;
         private static Frm_ExcepcionInterna excepcionInternaForm;
         private static Frm_ExcepcionInventario1 excepcionInventarioForm;
         private static Frm_ExcepcionCampoNull procesoFallidoInventario;
@@ -31,6 +33,7 @@ namespace NextBreadDemo1._0.Forms.Inventario
             InitializeComponent();
             CargarDatosYConfigurarDGV();
             _Inventario = new ModuloInventario();
+            moduloSeguridad = new ModuloSeguridad();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -41,60 +44,79 @@ namespace NextBreadDemo1._0.Forms.Inventario
 
         private void Btn_Regresar_Click(object sender, EventArgs e)
         {
-
+            Frm_PantallaCarga pantallaCarga = (Frm_PantallaCarga)Application.OpenForms["Frm_PantallaCarga"];
+            if (pantallaCarga != null)
+            {
+                Txt_CodigoProducto.Clear();
+                Txt_NombreProducto.Clear();
+                Txt_PrecioProducto.Clear();
+                Txt_CantidadProducto.Clear();
+                Txt_ProveedorProducto.Clear();
+                Cb_EstadoProducto.SelectedIndex = -1;
+                pantallaCarga.Frm_CajaRegistradora.Show();
+                this.Hide();
+            }
         }
 
         private void Frm_Inventario_Load(object sender, EventArgs e)
         {
-
+            permisos();
         }
 
         private void administrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Frm_EditarProductos newForm = new Frm_EditarProductos();
-            newForm.Show();
-            this.Hide();
+            Frm_PantallaCarga pantallaCarga = (Frm_PantallaCarga)Application.OpenForms["Frm_PantallaCarga"];
+            if (pantallaCarga != null)
+            {
+                pantallaCarga.Frm_EditarProductos.Show();
+                this.Hide();
+            }
         }
-
         private void CargarDatosYConfigurarDGV()
         {
             try
             {
-                if (ConexionBD.Instancia != null)
-                {
-                    ConexionBD.Instancia.AbrirConexion();
+                
+                ConexionBD conexionBD = new ConexionBD();
 
-                    if (ConexionBD.Instancia.GetConnection().State == System.Data.ConnectionState.Open)
+                using (SqlConnection connection = conexionBD.CrearNuevaConexion())
+                {
+                    connection.Open();
+
+                    if (connection.State == System.Data.ConnectionState.Open)
                     {
                         if (Dgv_ProveedoresRegistrados != null)
                         {
-                            SqlCommand cmd = new SqlCommand("SELECT IdProveedor, Nombre, Estado FROM Proveedor", ConexionBD.Instancia.GetConnection());
-                            SqlDataAdapter da = new SqlDataAdapter(cmd);
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-
-                            Dgv_ProveedoresRegistrados.DataSource = dt;
-
-                            if (Dgv_ProveedoresRegistrados.Columns.Contains("IdProveedor") &&
-                                Dgv_ProveedoresRegistrados.Columns.Contains("Nombre") &&
-                                Dgv_ProveedoresRegistrados.Columns.Contains("Estado"))
+                            using (SqlCommand cmd = new SqlCommand("SELECT IdProveedor, Nombre, Estado FROM Proveedor", connection))
                             {
-                                Dgv_ProveedoresRegistrados.Columns["IdProveedor"].HeaderText = "ID Proveedor";
-                                Dgv_ProveedoresRegistrados.Columns["Nombre"].HeaderText = "Nombre Proveedor";
-                                Dgv_ProveedoresRegistrados.Columns["Estado"].HeaderText = "Estado Actual Proveedor";
+                                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                                {
+                                    DataTable dt = new DataTable();
+                                    da.Fill(dt);
+                                    Dgv_ProveedoresRegistrados.DataSource = dt;
 
-                                Dgv_ProveedoresRegistrados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                            }
-                            else
-                            {
-                                MostrarExcepcionInterna();
-                                return; 
+                                    if (Dgv_ProveedoresRegistrados.Columns.Contains("IdProveedor") &&
+                                        Dgv_ProveedoresRegistrados.Columns.Contains("Nombre") &&
+                                        Dgv_ProveedoresRegistrados.Columns.Contains("Estado"))
+                                    {
+                                        Dgv_ProveedoresRegistrados.Columns["IdProveedor"].HeaderText = "ID Proveedor";
+                                        Dgv_ProveedoresRegistrados.Columns["Nombre"].HeaderText = "Nombre Proveedor";
+                                        Dgv_ProveedoresRegistrados.Columns["Estado"].HeaderText = "Estado Actual Proveedor";
+
+                                        Dgv_ProveedoresRegistrados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                                    }
+                                    else
+                                    {
+                                        MostrarExcepcionInterna();
+                                        return;
+                                    }
+                                }
                             }
                         }
                         else
                         {
                             MostrarExcepcionInterna();
-                            return; 
+                            return;
                         }
                     }
                     else
@@ -102,24 +124,14 @@ namespace NextBreadDemo1._0.Forms.Inventario
                         MostrarExcepcionInterna();
                     }
                 }
-                else
-                {
-                    MostrarExcepcionInterna();
-                }
             }
             catch (Exception ex)
             {
                 MostrarExcepcionInterna();
-                MessageBox.Show("Error al guardar el proveedor: " + ex.Message);
-            }
-            finally
-            {
-                if (ConexionBD.Instancia != null)
-                {
-                    ConexionBD.Instancia.CerrarConexion();
-                }
+                MessageBox.Show("Error al cargar los proveedores: " + ex.Message);
             }
         }
+
         private void Btn_AsignarProveedor_Click(object sender, EventArgs e)
         {
             try
@@ -185,6 +197,7 @@ namespace NextBreadDemo1._0.Forms.Inventario
                     Txt_PrecioProducto.Clear();
                     Txt_CantidadProducto.Clear();
                     Txt_ProveedorProducto.Clear();
+                    Cb_EstadoProducto.SelectedIndex = -1;
                     Txt_CantidadProducto.Focus();
                 }
 
@@ -222,6 +235,7 @@ namespace NextBreadDemo1._0.Forms.Inventario
             Txt_PrecioProducto.Clear();
             Txt_CantidadProducto.Clear();
             Txt_ProveedorProducto.Clear();
+            Cb_EstadoProducto.SelectedIndex = -1;
 
         }
 
@@ -229,12 +243,31 @@ namespace NextBreadDemo1._0.Forms.Inventario
         {
 
         }
-
         private void agregarProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Proveedor newForm = new Frm_Proveedor();
-            newForm.Show();
-            this.Hide();
+            Frm_PantallaCarga pantallaCarga = (Frm_PantallaCarga)Application.OpenForms["Frm_PantallaCarga"];
+            if (pantallaCarga != null)
+            {
+                pantallaCarga.Frm_Proveedor.Show();
+                this.Hide();
+            }
         }
+        private void permisos()
+        {
+            Boolean tipoPermiso = moduloSeguridad.validarPermiso(Lbl_Usuario.Text);
+            if (tipoPermiso == false)
+            {
+                Txt_CodigoProducto.Enabled = false;
+                Txt_NombreProducto.Enabled = false;
+                Txt_PrecioProducto.Enabled = false;
+                Txt_CantidadProducto.Enabled = false;
+                Txt_ProveedorProducto.Enabled = false;
+                Cb_EstadoProducto.Enabled = false;
+                Btn_AgregarProducto.Enabled = false;
+                Btn_Limpiar.Enabled = false;
+                Btn_AsignarProveedor.Enabled = false;
+            }
+        }
+
     }
 }
