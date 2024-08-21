@@ -59,6 +59,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.Dgv_UsuariosRegistrados = new System.Windows.Forms.DataGridView();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.Btn_ActualizarUsuario = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Usuario)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -69,6 +73,8 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_UsuariosRegistrados)).BeginInit();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // Pb_Usuario
@@ -86,9 +92,9 @@
             this.Lbl_Usuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Usuario.Location = new System.Drawing.Point(740, 75);
             this.Lbl_Usuario.Name = "Lbl_Usuario";
-            this.Lbl_Usuario.Size = new System.Drawing.Size(47, 17);
+            this.Lbl_Usuario.Size = new System.Drawing.Size(34, 17);
             this.Lbl_Usuario.TabIndex = 17;
-            this.Lbl_Usuario.Text = "admin";
+            this.Lbl_Usuario.Text = "user";
             // 
             // panel1
             // 
@@ -294,6 +300,7 @@
             this.Btn_LlenarUsuario.Size = new System.Drawing.Size(58, 58);
             this.Btn_LlenarUsuario.TabIndex = 12;
             this.Btn_LlenarUsuario.UseVisualStyleBackColor = false;
+            this.Btn_LlenarUsuario.Click += new System.EventHandler(this.Btn_LlenarUsuario_Click);
             // 
             // panel7
             // 
@@ -337,9 +344,9 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(17, 91);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 51);
+            this.label6.Size = new System.Drawing.Size(61, 34);
             this.label6.TabIndex = 6;
-            this.label6.Text = " Agregar / \r\nActualizar\r\n Usuario";
+            this.label6.Text = " Agregar\r\n Usuario";
             // 
             // Btn_Limpiar
             // 
@@ -397,12 +404,56 @@
             this.Dgv_UsuariosRegistrados.Size = new System.Drawing.Size(667, 132);
             this.Dgv_UsuariosRegistrados.TabIndex = 0;
             // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel13.Controls.Add(this.panel14);
+            this.panel13.Location = new System.Drawing.Point(695, 335);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(97, 144);
+            this.panel13.TabIndex = 22;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel14.Controls.Add(this.Btn_ActualizarUsuario);
+            this.panel14.Controls.Add(this.label13);
+            this.panel14.Location = new System.Drawing.Point(3, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(91, 138);
+            this.panel14.TabIndex = 13;
+            // 
+            // Btn_ActualizarUsuario
+            // 
+            this.Btn_ActualizarUsuario.BackColor = System.Drawing.Color.White;
+            this.Btn_ActualizarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_ActualizarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_ActualizarUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_ActualizarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ActualizarUsuario.Image")));
+            this.Btn_ActualizarUsuario.Location = new System.Drawing.Point(16, 20);
+            this.Btn_ActualizarUsuario.Name = "Btn_ActualizarUsuario";
+            this.Btn_ActualizarUsuario.Size = new System.Drawing.Size(58, 58);
+            this.Btn_ActualizarUsuario.TabIndex = 14;
+            this.Btn_ActualizarUsuario.UseVisualStyleBackColor = false;
+            this.Btn_ActualizarUsuario.Click += new System.EventHandler(this.Btn_ActualizarUsuario_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(13, 81);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 34);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Actualizar\r\n  Usuario";
+            // 
             // Frm_ModuloSeguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(803, 505);
+            this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
@@ -411,6 +462,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_ModuloSeguridad";
+            this.Load += new System.EventHandler(this.Frm_ModuloSeguridad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Pb_Usuario)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -426,6 +478,9 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_UsuariosRegistrados)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,5 +518,9 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView Dgv_UsuariosRegistrados;
         public System.Windows.Forms.Label Lbl_Usuario;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Button Btn_ActualizarUsuario;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -51,12 +51,6 @@
     <Compile Include="Entidades\Inventario.cs" />
     <Compile Include="Entidades\Proveedor.cs" />
     <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Avisos\Generales\Frm_ErrorLoginClave.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,11 +111,23 @@
     <Compile Include="Forms\Avisos\Generales\Frm_ExcepcionDuplicados.Designer.cs">
       <DependentUpon>Frm_ExcepcionDuplicados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Avisos\Seguridad\Frm_ErrorCodigoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Avisos\Seguridad\Frm_ErrorCodigoUsuario.Designer.cs">
+      <DependentUpon>Frm_ErrorCodigoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Avisos\Seguridad\Frm_ErrorUsuarioDesactivado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Avisos\Seguridad\Frm_ErrorUsuarioDesactivado.Designer.cs">
       <DependentUpon>Frm_ErrorUsuarioDesactivado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Avisos\Seguridad\Frm_ErrorUsuarioSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Avisos\Seguridad\Frm_ErrorUsuarioSeguridad.Designer.cs">
+      <DependentUpon>Frm_ErrorUsuarioSeguridad.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Avisos\Seguridad\Frm_PermisosInsuficientes.cs">
       <SubType>Form</SubType>
@@ -208,9 +214,6 @@
     <Compile Include="Servicios\ModuloInventario.cs" />
     <Compile Include="Servicios\ModuloProveedor.cs" />
     <Compile Include="Servicios\ModuloSeguridad.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Avisos\Generales\Frm_ErrorLoginClave.resx">
       <DependentUpon>Frm_ErrorLoginClave.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,8 +244,14 @@
     <EmbeddedResource Include="Forms\Avisos\Generales\Frm_ExcepcionDuplicados.resx">
       <DependentUpon>Frm_ExcepcionDuplicados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Avisos\Seguridad\Frm_ErrorCodigoUsuario.resx">
+      <DependentUpon>Frm_ErrorCodigoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Avisos\Seguridad\Frm_ErrorUsuarioDesactivado.resx">
       <DependentUpon>Frm_ErrorUsuarioDesactivado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Avisos\Seguridad\Frm_ErrorUsuarioSeguridad.resx">
+      <DependentUpon>Frm_ErrorUsuarioSeguridad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Avisos\Seguridad\Frm_PermisosInsuficientes.resx">
       <DependentUpon>Frm_PermisosInsuficientes.cs</DependentUpon>

@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAACs5JREFUeF7tnQlwE9cZx0nvu9Nj2ukxPaaddtrptNPptDOdkELClQQohGBwMLYO
+        DwAACw8BkvkDpQAACs5JREFUeF7tnQlwE9cZx0nvu9Nj2ukxPaaddtrptNPptDOdkELClQQohGBwMLYO
         G3MTHEIAa+U14EPalcGk4EJKUgKBEgoEUo4hkJAQ7iMQrhLA3PeVkgQCCcn2+9ZPsZH+K62klZHl95/5
         TZiR3nvf99dq9/l7Ty9tpKSkpKSkpKSkpKSkMl0uVf2Cy6+PcCnaVvrv/xi3X9/i8mnD+TXxNql0qL9P
         /6lb0d8kww2Ey6/tcqnVPxFvl3JSOSU1X3T7tTeQ8U2hD2F3/1H6l0UzKadE5mvIcIiiB0UzKSdUqNb8
@@ -172,7 +172,7 @@
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>      Esta seleccionando una fila que no contiene informacion o
-                      no esta seleccionando algun proveedor.
+                      no esta seleccionando alguna opcion.
                  Por favor seleccione una fila con informacion
                                     valida para continuar.</value>
   </data>

@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\nextbreaddemo1.0\\forms\\seguridad\\frm_moduloseguridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\forms\\seguridad\\frm_moduloseguridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|c:\\users\\usuario\\desktop\\nextbreaddemo1.0\\nextbreaddemo1.0\\forms\\caja registradora\\frm_cajaregistradora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\forms\\caja registradora\\frm_cajaregistradora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|c:\\users\\usuario\\desktop\\nextbreaddemo1.0\\nextbreaddemo1.0\\servicios\\moduloseguridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\servicios\\moduloseguridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|c:\\users\\usuario\\desktop\\nextbreaddemo1.0\\nextbreaddemo1.0\\servicios\\moduloinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\servicios\\moduloinventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\nextbreaddemo1.0\\forms\\seguridad\\frm_moduloseguridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\forms\\seguridad\\frm_moduloseguridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\nextbreaddemo1.0\\forms\\caja registradora\\frm_cajaregistradora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5689C58C-530D-40D5-8D08-240AB403F2AF}|NextBreadDemo1.0\\NextBreadDemo1.0.csproj|solutionrelative:nextbreaddemo1.0\\forms\\caja registradora\\frm_cajaregistradora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,54 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ModuloInventario.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Servicios\\ModuloInventario.cs",
-              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Servicios\\ModuloInventario.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Servicios\\ModuloInventario.cs",
-              "RelativeToolTip": "NextBreadDemo1.0\\Servicios\\ModuloInventario.cs",
-              "ViewState": "AQIAAKsAAAAAAAAAAAAAAL4AAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T07:06:58.478Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Frm_ModuloSeguridad.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Seguridad\\Frm_ModuloSeguridad.cs",
-              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Forms\\Seguridad\\Frm_ModuloSeguridad.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Seguridad\\Frm_ModuloSeguridad.cs",
-              "RelativeToolTip": "NextBreadDemo1.0\\Forms\\Seguridad\\Frm_ModuloSeguridad.cs",
-              "ViewState": "AQIAAE8AAAAAAAAAAAAAAJ8AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T06:01:32.589Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ModuloSeguridad.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Servicios\\ModuloSeguridad.cs",
-              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Servicios\\ModuloSeguridad.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Servicios\\ModuloSeguridad.cs",
-              "RelativeToolTip": "NextBreadDemo1.0\\Servicios\\ModuloSeguridad.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAAAFQAAAAJAAAA",
+              "Title": "Frm_CajaRegistradora.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Caja Registradora\\Frm_CajaRegistradora.cs",
+              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Forms\\Caja Registradora\\Frm_CajaRegistradora.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Caja Registradora\\Frm_CajaRegistradora.cs [Dise\u00F1o]",
+              "RelativeToolTip": "NextBreadDemo1.0\\Forms\\Caja Registradora\\Frm_CajaRegistradora.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T06:06:44.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-21T07:26:30.338Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Frm_ModuloSeguridad.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Seguridad\\Frm_ModuloSeguridad.cs",
-              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Forms\\Seguridad\\Frm_ModuloSeguridad.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Seguridad\\Frm_ModuloSeguridad.cs [Dise\u00F1o]",
-              "RelativeToolTip": "NextBreadDemo1.0\\Forms\\Seguridad\\Frm_ModuloSeguridad.cs [Dise\u00F1o]",
+              "Title": "Frm_CajaRegistradora.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Caja Registradora\\Frm_CajaRegistradora.cs",
+              "RelativeDocumentMoniker": "NextBreadDemo1.0\\Forms\\Caja Registradora\\Frm_CajaRegistradora.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\NextBreadDemo1.0\\NextBreadDemo1.0\\Forms\\Caja Registradora\\Frm_CajaRegistradora.cs",
+              "RelativeToolTip": "NextBreadDemo1.0\\Forms\\Caja Registradora\\Frm_CajaRegistradora.cs",
+              "ViewState": "AQIAAJwBAAAAAAAAAAAAAGEBAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T05:58:18.158Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-08-21T06:20:32.883Z",
+              "EditorCaption": ""
             }
           ]
         }

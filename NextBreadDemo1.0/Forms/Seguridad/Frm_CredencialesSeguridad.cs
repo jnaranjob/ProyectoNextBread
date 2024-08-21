@@ -21,6 +21,7 @@ namespace NextBreadDemo1._0.Forms.Seguridad
         private static Frm_ErrorLoginUsuario errorLoginForm;
         private static Frm_ErrorLoginClave errorClaveForm;
         private static Frm_PermisosInsuficientes errorUsuarioPermiso;
+        private static Frm_ErrorUsuarioDesactivado errorUsuarioDesactivado;
 
         public Frm_CredencialesSeguridad()
         {
@@ -51,7 +52,7 @@ namespace NextBreadDemo1._0.Forms.Seguridad
         {
 
             ConexionBD.Instancia.AbrirConexion();
-            string queryDB = "SELECT Clave, Permiso FROM Usuario WHERE Nombre COLLATE Latin1_General_BIN = @Nombre";
+            string queryDB = "SELECT Clave, Permiso, Estado FROM Usuario WHERE Nombre COLLATE Latin1_General_BIN = @Nombre";
 
             using (SqlCommand DBSQL = new SqlCommand(queryDB, ConexionBD.Instancia.GetConnection()))
             {
@@ -63,21 +64,32 @@ namespace NextBreadDemo1._0.Forms.Seguridad
                     {
                         string claveDB = reader.GetString(0);
                         int permiso = reader.GetInt32(1);
+                        Boolean estado = reader.GetBoolean(2);
 
-                        if (permiso == 1 || permiso == 2)
+                        if (!estado)
                         {
-                            ErrorUsuarioPermiso();
-                        }
-                        else if (claveDB == clave)
-                        {
-                            Frm_ModuloSeguridad newForm = new Frm_ModuloSeguridad();
-                            newForm.Show();
-                            this.Hide();
+                            ErrorUsuarioBloqueado();
                         }
                         else
                         {
-                            ErrorLoginClave();
-                        }
+                            if (permiso == 1 || permiso == 2)
+                            {
+                                ErrorUsuarioPermiso();
+                            }
+                            else if (claveDB == clave)
+                            {
+                                Frm_PantallaCarga pantallaCarga = (Frm_PantallaCarga)Application.OpenForms["Frm_PantallaCarga"];
+                                if (pantallaCarga != null)
+                                {
+                                    pantallaCarga.Frm_ModuloSeguridad.Show();
+                                    this.Hide();
+                                }
+                            }
+                            else
+                            {
+                                ErrorLoginClave();
+                            }
+                        }  
                     }
                     else
                     {
@@ -102,6 +114,11 @@ namespace NextBreadDemo1._0.Forms.Seguridad
         {
             errorUsuarioPermiso = new Frm_PermisosInsuficientes();
             errorUsuarioPermiso.ShowDialog();
+        }
+        private void ErrorUsuarioBloqueado()
+        {
+            errorUsuarioDesactivado = new Frm_ErrorUsuarioDesactivado();
+            errorUsuarioDesactivado.ShowDialog();
         }
 
     }

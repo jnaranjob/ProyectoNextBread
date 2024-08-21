@@ -22,9 +22,12 @@ namespace NextBreadDemo1._0.Servicios
         private static Frm_UsuarioDuplicado errorUsuarioDuplicado;
         private static Frm_ProcesoExitoso procesoExitosoForm;
         private static Frm_ProcesoFallido procesoFallidoForm;
+        private static Frm_ErrorUsuarioSeguridad errorCodigoUsuario;
 
         public delegate void LoginSuccessfulHandler();
         public event LoginSuccessfulHandler OnLoginSuccessful;
+        private int intentosFallidos = 0;
+        private const int maxIntentos = 5;
 
         public ModuloSeguridad()
         {
@@ -80,59 +83,55 @@ namespace NextBreadDemo1._0.Servicios
                 ConexionBD.Instancia.CerrarConexion();
             }
         }
-
-        void IntUsuario.desactivarUsuario(string nombre, bool estado)
+        void IntUsuario.editarUsuario(int idUsuario, string nombre, string clave, int permiso, bool estado)
         {
-
-            string queryDB = "UPDATE Usuarios SET Estado = @Estado WHERE Nombre = @Nombre";
-
-            using (SqlCommand DBSQL = new SqlCommand(queryDB))
+            try
             {
+                ConexionBD conexionBD = ConexionBD.Instancia;
+                conexionBD.AbrirConexion();
 
-                DBSQL.Parameters.AddWithValue("@Nombre", nombre);
-                DBSQL.Parameters.AddWithValue("@Estado", estado);
+                using (SqlConnection connection = conexionBD.CrearNuevaConexion())
+                {
+                    connection.Open();
 
-                DBSQL.ExecuteNonQuery();
+                    string queryDB = "UPDATE Usuario SET Nombre = @Nombre, Clave = @Clave, Permiso = @Permiso, Estado = @Estado WHERE IdUsuario = @IdUsuario";
 
-                //Faltaria los comandos de abrir y cerrar la conexion.
+                    using (SqlCommand DBSQL = new SqlCommand(queryDB, connection))
+                    {
+                        DBSQL.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                        DBSQL.Parameters.AddWithValue("@Nombre", nombre);
+                        DBSQL.Parameters.AddWithValue("@Clave", clave);
+                        DBSQL.Parameters.AddWithValue("@Permiso", permiso);
+                        DBSQL.Parameters.AddWithValue("@Estado", estado);
+
+                        int rowsAffected = DBSQL.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MostrarProcesoExitoso();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró un usuario con ese ID.");
+                        }
+                    }
+                }
             }
-
+            catch (Exception)
+            {
+                MostrarProcesoFallido();
+            }
+            finally
+            {
+                ConexionBD.Instancia.CerrarConexion();
+            }
         }
 
-        void IntUsuario.editarUsuario(string nombre, string clave, int permiso)
-        {
-            string queryDB = "UPDATE Usuarios SET Clave = @Clave, Permiso = @Permiso WHERE Nombre = @Nombre";
-
-            using (SqlCommand DBSQL = new SqlCommand(queryDB))
-            {
-
-                DBSQL.Parameters.AddWithValue("@Nombre", nombre);
-                DBSQL.Parameters.AddWithValue("@Clave", clave);
-                DBSQL.Parameters.AddWithValue("@Permiso", permiso);
-
-                DBSQL.ExecuteNonQuery();
-
-            }
-
-        }
-        bool IntUsuario.validarPermiso(string nombre)
+        int IntUsuario.validarPermiso(string nombre)
         {
             int permiso = permisoActual(nombre);
-            Boolean comportamiento = false;
 
-            if (permiso == 1)
-            {
-                comportamiento = false;
-            }
-            if (permiso == 2)
-            {
-                comportamiento = false;
-            }
-            if (permiso == 3)
-            {
-                comportamiento = true;
-            }
-            return comportamiento;
+            return permiso;
         }
 
         private int permisoActual(string nombre)
@@ -178,40 +177,87 @@ namespace NextBreadDemo1._0.Servicios
 
         public void validarCredenciales(string nombre, string clave)
         {
-            ConexionBD.Instancia.AbrirConexion();
-            string queryDB = "SELECT Clave, Estado FROM Usuario WHERE Nombre COLLATE Latin1_General_BIN = @Nombre";
-
-            using (SqlCommand DBSQL = new SqlCommand(queryDB, ConexionBD.Instancia.GetConnection()))
+            try
             {
-                DBSQL.Parameters.AddWithValue("@Nombre", nombre);
+                ConexionBD.Instancia.AbrirConexion();
+                string queryDB = "SELECT Clave, Estado FROM Usuario WHERE Nombre COLLATE Latin1_General_BIN = @Nombre";
 
-                using (SqlDataReader reader = DBSQL.ExecuteReader())
+                using (SqlCommand DBSQL = new SqlCommand(queryDB, ConexionBD.Instancia.GetConnection()))
                 {
-                    if (reader.Read())
-                    {
-                        string claveDB = reader.GetString(0);
-                        bool estado = reader.GetBoolean(1);
+                    DBSQL.Parameters.AddWithValue("@Nombre", nombre);
 
-                        if (!estado)
+                    using (SqlDataReader reader = DBSQL.ExecuteReader())
+                    {
+                        if (reader.Read())
                         {
-                            ErrorUsuarioBloqueado();
-                        }
-                        else if (claveDB == clave)
-                        {
-                            OnLoginSuccessful?.Invoke();
+                            string claveDB = reader.GetString(0);
+                            bool estado = reader.GetBoolean(1);
+
+                            if (!estado)
+                            {
+                                ErrorUsuarioBloqueado();
+                            }
+                            else if (claveDB == clave)
+                            {
+                                intentosFallidos = 0;
+                                OnLoginSuccessful?.Invoke();
+                            }
+                            else
+                            {
+                                intentosFallidos++;
+
+                                if (intentosFallidos >= maxIntentos)
+                                {
+                                    DesactivarUsuario(nombre);
+                                    ErrorUsuarioDesactivado();
+                                }
+                                else
+                                {
+                                    ErrorLoginClave();
+                                }
+                            }
                         }
                         else
                         {
-                            ErrorLoginClave();
+                            ErrorLoginUsuarioForm();
                         }
-                    }
-                    else
-                    {
-                        ErrorLoginUsuarioForm();
                     }
                 }
             }
-            ConexionBD.Instancia.CerrarConexion();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en la validación de credenciales: " + ex.Message);
+            }
+            finally
+            {
+                ConexionBD.Instancia.CerrarConexion();
+            }
+        }
+        private void DesactivarUsuario(string nombre)
+        {
+            using (SqlConnection nuevaConexion = ConexionBD.Instancia.CrearNuevaConexion())
+            {
+                try
+                {
+                    nuevaConexion.Open();
+
+                    string updateQuery = "UPDATE Usuario SET Estado = 0 WHERE Nombre COLLATE Latin1_General_BIN = @Nombre";
+
+                    using (SqlCommand updateCmd = new SqlCommand(updateQuery, nuevaConexion))
+                    {
+                        updateCmd.Parameters.AddWithValue("@Nombre", nombre);
+                        updateCmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al desactivar el usuario: " + ex.Message);
+                }
+                finally
+                {
+                    nuevaConexion.Close();
+                }
+            }
         }
 
         private void ErrorLoginUsuarioForm()
@@ -241,11 +287,15 @@ namespace NextBreadDemo1._0.Servicios
             procesoExitosoForm = new Frm_ProcesoExitoso();
             procesoExitosoForm.ShowDialog();
         }
-
         private void MostrarProcesoFallido()
         {
             procesoFallidoForm = new Frm_ProcesoFallido();
             procesoFallidoForm.ShowDialog();
+        }
+        private void ErrorUsuarioDesactivado()
+        {
+            errorCodigoUsuario = new Frm_ErrorUsuarioSeguridad();
+            errorCodigoUsuario.ShowDialog();
         }
     }
 }

@@ -243,9 +243,9 @@
             this.Lbl_Usuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Usuario.Location = new System.Drawing.Point(711, 77);
             this.Lbl_Usuario.Name = "Lbl_Usuario";
-            this.Lbl_Usuario.Size = new System.Drawing.Size(47, 17);
+            this.Lbl_Usuario.Size = new System.Drawing.Size(34, 17);
             this.Lbl_Usuario.TabIndex = 6;
-            this.Lbl_Usuario.Text = "admin";
+            this.Lbl_Usuario.Text = "user";
             // 
             // Pb_Usuario
             // 

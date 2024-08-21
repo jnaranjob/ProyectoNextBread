@@ -41,6 +41,8 @@ namespace NextBreadDemo1._0.Forms.Inventario
         private void Frm_EditarProductos_Load(object sender, EventArgs e)
         {
             permisos();
+            CargarDatosYConfigurarDGV();
+            CargarDatosYConfigurarDGVProveedores();
         }
 
         private void Btn_Regresar_Click(object sender, EventArgs e)
@@ -383,8 +385,8 @@ namespace NextBreadDemo1._0.Forms.Inventario
         }
         private void permisos()
         {
-            Boolean tipoPermiso = moduloSeguridad.validarPermiso(Lbl_Usuario.Text);
-            if (tipoPermiso == false)
+            int tipoPermiso = moduloSeguridad.validarPermiso(Lbl_Usuario.Text);
+            if (tipoPermiso == 1 || tipoPermiso == 2)
             {
                 Txt_CodigoProducto.Enabled = false;
                 Txt_NombreProducto.Enabled = false;

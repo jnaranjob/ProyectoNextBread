@@ -2,7 +2,6 @@ C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\bin\Debug\NextBreadDe
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\bin\Debug\NextBreadDemo1.0.exe
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\bin\Debug\NextBreadDemo1.0.pdb
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1.0.csproj.AssemblyReference.cache
-C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Form1.resources
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Inventario.Frm_Inventario.resources
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Properties.Resources.resources
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1.0.csproj.GenerateResource.cache
@@ -31,3 +30,5 @@ C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDe
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Seguridad.Frm_ErrorUsuarioDesactivado.resources
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Seguridad.Frm_PermisosInsuficientes.resources
 C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Seguridad.Frm_UsuarioDuplicado.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Seguridad.Frm_ErrorCodigoUsuario.resources
+C:\Users\Usuario\Desktop\NextBreadDemo1.0\NextBreadDemo1.0\obj\Debug\NextBreadDemo1._0.Forms.Avisos.Seguridad.Frm_ErrorUsuarioSeguridad.resources

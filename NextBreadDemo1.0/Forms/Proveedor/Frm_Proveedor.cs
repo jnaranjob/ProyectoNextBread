@@ -122,8 +122,8 @@ namespace NextBreadDemo1._0.Forms.Proveedor
 
         private void permisos()
         {
-            Boolean tipoPermiso = moduloSeguridad.validarPermiso(Lbl_Usuario.Text);
-            if (tipoPermiso == false)
+            int tipoPermiso = moduloSeguridad.validarPermiso(Lbl_Usuario.Text);
+            if (tipoPermiso == 1 || tipoPermiso == 2)
             {
                 Txt_NombreProveedor.Enabled = false;
                 Cb_EstadoProveedor.Enabled = false;

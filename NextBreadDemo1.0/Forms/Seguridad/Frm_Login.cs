@@ -65,6 +65,15 @@ namespace NextBreadDemo1._0.Forms.Seguridad
         {
             this.Hide();
 
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is Frm_PantallaCarga)
+                {
+                    form.Close();
+                    break;
+                }
+            }
+
             Frm_PantallaCarga pantallaCarga = new Frm_PantallaCarga(Txt_Usuario.Text);
             pantallaCarga.Show();
         }

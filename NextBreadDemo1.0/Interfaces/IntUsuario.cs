@@ -9,10 +9,9 @@ namespace NextBreadDemo1._0.Interfaces
     public interface IntUsuario
     {
         void agregarUsuario(int codigo, string nombre, string clave, int permiso, Boolean estado);
-        void editarUsuario(string nombre, string clave, int permiso);
-        void desactivarUsuario(string nombre, Boolean estado);
+        void editarUsuario(int codigo, string nombre, string clave, int permiso, Boolean estado);
         void validarCredenciales(string nombre, string clave);
-        Boolean validarPermiso(string nombre);
+        int validarPermiso(string nombre);
 
     }
 }

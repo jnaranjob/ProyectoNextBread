@@ -160,7 +160,6 @@ namespace NextBreadDemo1._0.Forms.Proveedor
 
         private void Btn_AgregarProveedor_Click(object sender, EventArgs e)
         {
-
             try
             {
                 int codigo = int.Parse(Txt_Codigo.Text);
@@ -205,12 +204,13 @@ namespace NextBreadDemo1._0.Forms.Proveedor
         private void Frm_EditarProveedor_Load(object sender, EventArgs e)
         {
             permisos();
+            CargarDatosYConfigurarDGV();
         }
 
         private void permisos()
         {
-            Boolean tipoPermiso = moduloSeguridad.validarPermiso(Lbl_Usuario.Text);
-            if (tipoPermiso == false)
+            int tipoPermiso = moduloSeguridad.validarPermiso(Lbl_Usuario.Text);
+            if (tipoPermiso == 1 || tipoPermiso == 2)
             {
                 Txt_Codigo.Enabled = false;
                 Txt_NombreProveedor.Enabled = false;

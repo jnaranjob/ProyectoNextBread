@@ -35,14 +35,6 @@ namespace NextBreadDemo1._0.Forms.Avisos.Generales
             moduloSeguridad = new ModuloSeguridad();
 
             this.nombreUsuario = nombreUsuario;
-
-            frm_CajaRegistradora = new Frm_CajaRegistradora();
-            frm_Inventario = new Frm_Inventario();
-            frm_EditarProductos = new Frm_EditarProductos();
-            frm_Proveedor = new Frm_Proveedor();
-            frm_EditarProveedor = new Frm_EditarProveedor();
-            frm_ModuloSeguridad = new Frm_ModuloSeguridad();
-
         }
 
         public Frm_CajaRegistradora Frm_CajaRegistradora => frm_CajaRegistradora;
@@ -54,12 +46,20 @@ namespace NextBreadDemo1._0.Forms.Avisos.Generales
 
         private async void Frm_PantallaCarga_Load(object sender, EventArgs e)
         {
+            CerrarFormularios();
             for (int i = 0; i <= 100; i++)
             {
                 await Task.Delay(60);
                 progressBar1.Value = i;
                 Lbl_Carga.Text = $"Cargando... {i}%";
             }
+
+            frm_CajaRegistradora = new Frm_CajaRegistradora();
+            frm_Inventario = new Frm_Inventario();
+            frm_EditarProductos = new Frm_EditarProductos();
+            frm_Proveedor = new Frm_Proveedor();
+            frm_EditarProveedor = new Frm_EditarProveedor();
+            frm_ModuloSeguridad = new Frm_ModuloSeguridad();
 
             frm_CajaRegistradora.Lbl_Usuario.Text = nombreUsuario;
             frm_Inventario.Lbl_Usuario.Text = nombreUsuario;
@@ -71,7 +71,17 @@ namespace NextBreadDemo1._0.Forms.Avisos.Generales
             frm_CajaRegistradora.Show();
             this.Hide();
             Frm_Login login = new Frm_Login();
-            login.Hide();
+            login.Close();
+        }
+
+        public void CerrarFormularios()
+        {
+            frm_CajaRegistradora?.Close();
+            frm_Inventario?.Close();
+            frm_EditarProductos?.Close();
+            frm_Proveedor?.Close();
+            frm_EditarProveedor?.Close();
+            frm_ModuloSeguridad?.Close();
         }
 
     }

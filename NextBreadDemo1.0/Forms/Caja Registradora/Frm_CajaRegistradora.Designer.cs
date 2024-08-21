@@ -37,7 +37,7 @@
             this.Lbl_CodigoP = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_Cantidad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Txt_CodigoProducto = new System.Windows.Forms.TextBox();
@@ -66,8 +66,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_TotalPagar = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_SubTotal = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Pb_Usuario = new System.Windows.Forms.PictureBox();
@@ -113,6 +113,7 @@
             // Dtp_FechaCompra
             // 
             this.Dtp_FechaCompra.CalendarFont = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dtp_FechaCompra.Enabled = false;
             this.Dtp_FechaCompra.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Dtp_FechaCompra.Location = new System.Drawing.Point(119, 71);
             this.Dtp_FechaCompra.Margin = new System.Windows.Forms.Padding(2);
@@ -160,7 +161,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.Txt_Cantidad);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.Txt_CodigoProducto);
@@ -175,13 +176,13 @@
             this.panel5.Size = new System.Drawing.Size(713, 198);
             this.panel5.TabIndex = 1;
             // 
-            // textBox1
+            // Txt_Cantidad
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(140, 166);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(82, 25);
-            this.textBox1.TabIndex = 14;
+            this.Txt_Cantidad.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_Cantidad.Location = new System.Drawing.Point(140, 166);
+            this.Txt_Cantidad.Name = "Txt_Cantidad";
+            this.Txt_Cantidad.Size = new System.Drawing.Size(82, 25);
+            this.Txt_Cantidad.TabIndex = 14;
             // 
             // label5
             // 
@@ -407,6 +408,7 @@
             this.Btn_CancelarCompra.Size = new System.Drawing.Size(58, 58);
             this.Btn_CancelarCompra.TabIndex = 13;
             this.Btn_CancelarCompra.UseVisualStyleBackColor = false;
+            this.Btn_CancelarCompra.Click += new System.EventHandler(this.Btn_CancelarCompra_Click);
             // 
             // Btn_QuitarProducto
             // 
@@ -420,6 +422,7 @@
             this.Btn_QuitarProducto.Size = new System.Drawing.Size(58, 58);
             this.Btn_QuitarProducto.TabIndex = 12;
             this.Btn_QuitarProducto.UseVisualStyleBackColor = false;
+            this.Btn_QuitarProducto.Click += new System.EventHandler(this.Btn_QuitarProducto_Click);
             // 
             // label12
             // 
@@ -468,8 +471,8 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel8.Controls.Add(this.maskedTextBox2);
-            this.panel8.Controls.Add(this.maskedTextBox1);
+            this.panel8.Controls.Add(this.Txt_TotalPagar);
+            this.panel8.Controls.Add(this.Txt_SubTotal);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Controls.Add(this.label8);
             this.panel8.Location = new System.Drawing.Point(3, 3);
@@ -477,23 +480,23 @@
             this.panel8.Size = new System.Drawing.Size(369, 58);
             this.panel8.TabIndex = 1;
             // 
-            // maskedTextBox2
+            // Txt_TotalPagar
             // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(283, 15);
-            this.maskedTextBox2.Mask = "₡ 0000000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(82, 25);
-            this.maskedTextBox2.TabIndex = 16;
+            this.Txt_TotalPagar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_TotalPagar.Location = new System.Drawing.Point(283, 15);
+            this.Txt_TotalPagar.Mask = "₡ 0000000";
+            this.Txt_TotalPagar.Name = "Txt_TotalPagar";
+            this.Txt_TotalPagar.Size = new System.Drawing.Size(82, 25);
+            this.Txt_TotalPagar.TabIndex = 16;
             // 
-            // maskedTextBox1
+            // Txt_SubTotal
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(69, 15);
-            this.maskedTextBox1.Mask = "₡ 0000000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(82, 25);
-            this.maskedTextBox1.TabIndex = 15;
+            this.Txt_SubTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_SubTotal.Location = new System.Drawing.Point(69, 15);
+            this.Txt_SubTotal.Mask = "₡ 0000000";
+            this.Txt_SubTotal.Name = "Txt_SubTotal";
+            this.Txt_SubTotal.Size = new System.Drawing.Size(82, 25);
+            this.Txt_SubTotal.TabIndex = 15;
             // 
             // label7
             // 
@@ -574,6 +577,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_CajaRegistradora";
+            this.Load += new System.EventHandler(this.Frm_CajaRegistradora_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -616,7 +620,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Txt_CodigoProducto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_Cantidad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Panel panel4;
@@ -625,8 +629,8 @@
         private System.Windows.Forms.DataGridView Dgv_ProveedoresRegistrados;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox Txt_TotalPagar;
+        private System.Windows.Forms.MaskedTextBox Txt_SubTotal;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox Pb_Usuario;
