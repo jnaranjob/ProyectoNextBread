@@ -86,6 +86,8 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
                 AgregarProductoAlGrid();
                 e.Handled = true;  // Evita el beep de la tecla Enter
                 e.SuppressKeyPress = true;
+                Txt_CodigoProducto.Clear();
+                Txt_CodigoProducto.Focus();
             }
         }
 
@@ -104,6 +106,7 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
 
 
             string codigoProducto = Txt_CodigoProducto.Text.Trim();
+            string descripcionProducto = Txt_Descripcion.Text.Trim();
             decimal precio = string.IsNullOrEmpty(numeroTexto) ? 0 : Convert.ToDecimal(numeroTexto);
             int cantidad = Convert.ToInt32(Txt_Cantidad.Text.Trim());
 
@@ -115,7 +118,7 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
 
             decimal subtotal = precio * cantidad;
 
-            Dgv_ProveedoresRegistrados.Rows.Add(codigoProducto, precio, cantidad, subtotal);
+            Dgv_ProveedoresRegistrados.Rows.Add(codigoProducto, descripcionProducto, precio, cantidad, subtotal);
 
             CalcularTotales();
 
@@ -172,23 +175,28 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
         private void Frm_CajaRegistradora_Load(object sender, EventArgs e)
         {
             Dgv_ProveedoresRegistrados.Columns.Add("CodigoProducto", "Código Producto");
+            Dgv_ProveedoresRegistrados.Columns.Add("Descripcion", "Descripción de Producto");
             Dgv_ProveedoresRegistrados.Columns.Add("Precio", "Precio");
             Dgv_ProveedoresRegistrados.Columns.Add("Cantidad", "Cantidad");
             Dgv_ProveedoresRegistrados.Columns.Add("SubTotal", "SubTotal");
 
             Dgv_ProveedoresRegistrados.Columns["CodigoProducto"].ReadOnly = true;
+            Dgv_ProveedoresRegistrados.Columns["Descripcion"].ReadOnly = true;
             Dgv_ProveedoresRegistrados.Columns["Precio"].ReadOnly = true;
             Dgv_ProveedoresRegistrados.Columns["Cantidad"].ReadOnly = false;
             Dgv_ProveedoresRegistrados.Columns["SubTotal"].ReadOnly = true;
 
+
+
             Cb_TipoPago.DataSource = new BindingSource(tiposPago, null);
             Cb_TipoPago.DisplayMember = "Value";
             Cb_TipoPago.ValueMember = "Key";
+            Txt_CodigoProducto.Focus();
             permisos();
         }
         private void BuscarProducto(string codigoProducto)
         {
-            string query = @"SELECT Precio FROM Inventario WHERE CodigoProducto = @CodigoProducto";
+            string query = @"SELECT Precio,Nombre FROM Inventario WHERE CodigoProducto = @CodigoProducto";
 
             using (SqlCommand cmd = new SqlCommand(query, connection))
             {
@@ -205,11 +213,13 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
                     if (reader.Read())
                     {
                         Txt_PrecioProducto.Text = reader["Precio"].ToString();
+                        Txt_Descripcion.Text = reader["Nombre"].ToString();
                     }
                     else
                     {
                         MessageBox.Show("Producto no encontrado.");
                         Txt_PrecioProducto.Clear();
+                        Txt_Descripcion.Clear();
                     }
                     reader.Close();
                 }
@@ -253,7 +263,6 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
         }
         private void Btn_Facturar_Click(object sender, EventArgs e)
         {
-
             DateTime fechaCompra = DateTime.Now;
             string idTipoPago = Cb_TipoPago.SelectedValue?.ToString();
             int idUsuario = 1;
@@ -280,11 +289,13 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
                 if (row.Cells["CodigoProducto"].Value != null)
                 {
                     string codigoProducto = row.Cells["CodigoProducto"].Value.ToString();
+                    string descripcion = row.Cells["Descripcion"].Value.ToString();
                     decimal precio = Convert.ToDecimal(row.Cells["Precio"].Value);
                     int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
                     decimal subtotal = Convert.ToDecimal(row.Cells["SubTotal"].Value);
 
-                    InsertarDetalleFactura(codigoVenta, codigoProducto, precio, cantidad, subtotal);
+
+                    InsertarDetalleFactura(codigoVenta, codigoProducto, precio, cantidad, subtotal, descripcion);
                 }
             }
 
@@ -292,13 +303,17 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
             Dgv_ProveedoresRegistrados.Rows.Clear();
             Txt_SubTotal.Clear();
             Txt_TotalPagar.Clear();
+            Txt_CodigoProducto.Clear();
+            Txt_CodigoProducto.Focus();
+            Txt_CodigoVenta.Clear();
+            Txt_Descripcion.Clear();
         }
 
-        private void InsertarDetalleFactura(string codigoVenta, string codigoProducto, decimal precio, int cantidad, decimal subtotal)
+        private void InsertarDetalleFactura(string codigoVenta, string codigoProducto, decimal precio, int cantidad, decimal subtotal, string descripcion)
         {
             string query = @"
-                INSERT INTO DetalleFactura (CodigoVenta, CodigoProducto, Precio, Cantidad, SubTotal)
-                VALUES (@CodigoVenta, @CodigoProducto, @Precio, @Cantidad, @SubTotal);
+                INSERT INTO DetalleFactura (CodigoVenta, CodigoProducto, Precio, Cantidad, SubTotal, Descripcion)
+                VALUES (@CodigoVenta, @CodigoProducto, @Precio, @Cantidad, @SubTotal, @Descripcion);
 
                 UPDATE Inventario
                 SET Cantidad = Cantidad - @Cantidad
@@ -311,6 +326,7 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
                 cmd.Parameters.AddWithValue("@Precio", precio);
                 cmd.Parameters.AddWithValue("@Cantidad", cantidad);
                 cmd.Parameters.AddWithValue("@SubTotal", subtotal);
+                cmd.Parameters.AddWithValue("@Descripcion", descripcion);
 
                 try
                 {
@@ -401,12 +417,83 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
 
         private void Btn_QuitarProducto_Click(object sender, EventArgs e)
         {
+            if (Dgv_ProveedoresRegistrados.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("¿Desea eliminar el artículo seleccionado?",
+                                                      "Confirmar Eliminación",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Question);
 
+                if (result == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow row in Dgv_ProveedoresRegistrados.SelectedRows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            Dgv_ProveedoresRegistrados.Rows.Remove(row);
+                        }
+                    }
+                    CalcularTotales();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila para eliminar.");
+            }
         }
 
         private void Btn_CancelarCompra_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("¿Está seguro que desea cancelar la compra?",
+                                                  "Confirmar Cancelación",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                Dgv_ProveedoresRegistrados.Rows.Clear();
+                Txt_SubTotal.Clear();
+                Txt_TotalPagar.Clear();
+                Txt_CodigoProducto.Clear();
+                Txt_Descripcion.Clear();
+                Txt_CodigoVenta.Clear();
 
+                Txt_CodigoProducto.Focus();
+
+                MessageBox.Show("Compra cancelada exitosamente.", "Operación Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void Txt_CodigoProducto_TextChanged(object sender, EventArgs e)
+        {
+            string codigoProducto = Txt_CodigoProducto.Text.Trim();
+            if (!string.IsNullOrEmpty(codigoProducto))
+            {
+                BuscarProducto(codigoProducto);
+            }
+        }
+
+        private void Dgv_ProveedoresRegistrados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+         
+        }
+
+        private void Dgv_ProveedoresRegistrados_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == Dgv_ProveedoresRegistrados.Columns["Cantidad"].Index && e.RowIndex >= 0)
+            {
+                Dgv_ProveedoresRegistrados.EndEdit();  
+
+                if (Dgv_ProveedoresRegistrados.Rows[e.RowIndex].Cells["Cantidad"].Value != null)
+                {
+                    int cantidad = Convert.ToInt32(Dgv_ProveedoresRegistrados.Rows[e.RowIndex].Cells["Cantidad"].Value);
+                    decimal precio = Convert.ToDecimal(Dgv_ProveedoresRegistrados.Rows[e.RowIndex].Cells["Precio"].Value);
+
+                    decimal subtotal = precio * cantidad;
+                    Dgv_ProveedoresRegistrados.Rows[e.RowIndex].Cells["SubTotal"].Value = subtotal;
+
+                    CalcularTotales();
+                }
+            }
         }
     }
 }
