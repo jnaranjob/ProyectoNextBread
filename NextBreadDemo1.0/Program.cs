@@ -1,6 +1,7 @@
 ﻿using NextBreadDemo1._0.Forms.Avisos.Inventario;
 using NextBreadDemo1._0.Forms.Caja_Registradora;
 using NextBreadDemo1._0.Forms.Inventario;
+using NextBreadDemo1._0.Forms.Reporte;
 using NextBreadDemo1._0.Forms.Seguridad;
 using System;
 using System.Collections.Generic;

@@ -73,10 +73,10 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
 
         private void label13_Click(object sender, EventArgs e)
         {
-            CerrarTodosLosFormularios();
-
             Frm_Login login = new Frm_Login();
             login.Show();
+
+            CerrarTodosLosFormularios();
         }
 
         private void Txt_Cantidad_KeyDown(object sender, KeyEventArgs e)
@@ -126,6 +126,7 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
             Txt_Cantidad.Clear();
             Txt_PrecioProducto.Clear();
             Txt_Cantidad.Focus();
+            Txt_Descripcion.Clear();
         }
 
         private bool VerificarDisponibilidadProducto(string codigoProducto, int cantidadRequerida)
@@ -157,6 +158,8 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
         {
             decimal total = 0;
             decimal subtotal = 0;
+            const decimal IVA = 0.13m;
+            decimal imp;
 
             foreach (DataGridViewRow row in Dgv_ProveedoresRegistrados.Rows)
             {
@@ -165,9 +168,11 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
                     subtotal += Convert.ToDecimal(row.Cells["SubTotal"].Value);
                 }
             }
-            total = subtotal;
-            Txt_SubTotal.Text = subtotal.ToString("0.00");
-            Txt_TotalPagar.Text = total.ToString("0.00");
+
+            imp = subtotal * IVA;
+            total = subtotal + imp;
+            Txt_SubTotal.Text = subtotal.ToString("0");
+            Txt_TotalPagar.Text = total.ToString("0");
 
             return total;
         }
@@ -212,7 +217,9 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        Txt_PrecioProducto.Text = reader["Precio"].ToString();
+                        decimal precio = Convert.ToDecimal(reader["Precio"]);
+
+                        Txt_PrecioProducto.Text = precio.ToString("F0");
                         Txt_Descripcion.Text = reader["Nombre"].ToString();
                     }
                     else
@@ -254,8 +261,12 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
 
             foreach (Form form in Application.OpenForms)
             {
-                formsToClose.Add(form);
+                if (!(form is Frm_Login))
+                {
+                    formsToClose.Add(form);
+                }
             }
+
             foreach (Form form in formsToClose)
             {
                 form.Close();
@@ -265,7 +276,25 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
         {
             DateTime fechaCompra = DateTime.Now;
             string idTipoPago = Cb_TipoPago.SelectedValue?.ToString();
-            int idUsuario = 1;
+
+            int idUsuario = 0;
+            string user = Lbl_Usuario.Text;
+
+            string queryUsuario = "SELECT IdUsuario FROM Usuario WHERE Nombre = @user";
+            using (SqlCommand cmdProveedor = new SqlCommand(queryUsuario, ConexionBD.Instancia.GetConnection()))
+            {
+                cmdProveedor.Parameters.AddWithValue("@user", user);
+                object result = cmdProveedor.ExecuteScalar();
+                if (result != null)
+                {
+                    idUsuario = Convert.ToInt32(result);
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
 
             if (string.IsNullOrEmpty(idTipoPago))
             {
@@ -431,6 +460,7 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
                         if (!row.IsNewRow)
                         {
                             Dgv_ProveedoresRegistrados.Rows.Remove(row);
+                            Txt_Descripcion.Clear();
                         }
                     }
                     CalcularTotales();
@@ -494,6 +524,20 @@ namespace NextBreadDemo1._0.Forms.Caja_Registradora
                     CalcularTotales();
                 }
             }
+        }
+
+        private void verReporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_PantallaCarga pantallaCarga = (Frm_PantallaCarga)Application.OpenForms["Frm_PantallaCarga"];
+            if (pantallaCarga != null)
+            {
+                pantallaCarga.Frm_Reporte.Show();
+            }
+        }
+
+        private void Txt_PrecioProducto_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

@@ -284,7 +284,7 @@ namespace NextBreadDemo1._0.Forms.Inventario
 
         }
 
-        private void CargarDatosYConfigurarDGVProveedores()
+        public void CargarDatosYConfigurarDGVProveedores()
         {
             try
             {

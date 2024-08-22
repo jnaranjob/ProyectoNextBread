@@ -73,7 +73,7 @@ namespace NextBreadDemo1._0.Forms.Inventario
                 this.Hide();
             }
         }
-        private void CargarDatosYConfigurarDGV()
+        public void CargarDatosYConfigurarDGV()
         {
             try
             {
@@ -200,9 +200,12 @@ namespace NextBreadDemo1._0.Forms.Inventario
                     Txt_ProveedorProducto.Clear();
                     Cb_EstadoProducto.SelectedIndex = -1;
                     Txt_CantidadProducto.Focus();
+                    Frm_PantallaCarga pantallaCarga = (Frm_PantallaCarga)Application.OpenForms["Frm_PantallaCarga"];
+                    if (pantallaCarga != null)
+                    {
+                        pantallaCarga.Frm_EditarProductos.CargarDatosYConfigurarDGV();
+                    }
                 }
-
-
 
             } catch (Exception ex)
             {
@@ -269,6 +272,5 @@ namespace NextBreadDemo1._0.Forms.Inventario
                 Btn_AsignarProveedor.Enabled = false;
             }
         }
-
     }
 }

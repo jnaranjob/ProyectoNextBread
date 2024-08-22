@@ -1,6 +1,7 @@
 ﻿using NextBreadDemo1._0.Forms.Caja_Registradora;
 using NextBreadDemo1._0.Forms.Inventario;
 using NextBreadDemo1._0.Forms.Proveedor;
+using NextBreadDemo1._0.Forms.Reporte;
 using NextBreadDemo1._0.Forms.Seguridad;
 using NextBreadDemo1._0.Interfaces;
 using NextBreadDemo1._0.Servicios;
@@ -27,6 +28,7 @@ namespace NextBreadDemo1._0.Forms.Avisos.Generales
         private Frm_Proveedor frm_Proveedor;
         private Frm_EditarProveedor frm_EditarProveedor;
         private Frm_ModuloSeguridad frm_ModuloSeguridad;
+        private Frm_Reporte frm_Reporte;
 
         public Frm_PantallaCarga(string nombreUsuario)
         {
@@ -43,6 +45,7 @@ namespace NextBreadDemo1._0.Forms.Avisos.Generales
         public Frm_Proveedor Frm_Proveedor => frm_Proveedor;
         public Frm_EditarProveedor Frm_EditarProveedor => frm_EditarProveedor;
         public Frm_ModuloSeguridad Frm_ModuloSeguridad => frm_ModuloSeguridad;
+        public Frm_Reporte Frm_Reporte => frm_Reporte;
 
         private async void Frm_PantallaCarga_Load(object sender, EventArgs e)
         {
@@ -60,6 +63,7 @@ namespace NextBreadDemo1._0.Forms.Avisos.Generales
             frm_Proveedor = new Frm_Proveedor();
             frm_EditarProveedor = new Frm_EditarProveedor();
             frm_ModuloSeguridad = new Frm_ModuloSeguridad();
+            frm_Reporte = new Frm_Reporte();
 
             frm_CajaRegistradora.Lbl_Usuario.Text = nombreUsuario;
             frm_Inventario.Lbl_Usuario.Text = nombreUsuario;
@@ -82,6 +86,7 @@ namespace NextBreadDemo1._0.Forms.Avisos.Generales
             frm_Proveedor?.Close();
             frm_EditarProveedor?.Close();
             frm_ModuloSeguridad?.Close();
+            frm_Reporte?.Close();
         }
 
     }

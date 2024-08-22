@@ -53,7 +53,7 @@ namespace NextBreadDemo1._0.Forms.Proveedor
             Cb_EstadoProveedor.SelectedIndex = -1;
         }
 
-        private void CargarDatosYConfigurarDGV()
+        public void CargarDatosYConfigurarDGV()
         {
             try
             {
@@ -188,6 +188,7 @@ namespace NextBreadDemo1._0.Forms.Proveedor
                 Txt_NombreProveedor.Clear();
                 Cb_EstadoProveedor.SelectedIndex = -1;
                 Txt_NombreProveedor.Focus();
+                CargarDatosYConfigurarDGV();
             }
             catch (Exception)
             {

@@ -75,6 +75,13 @@ namespace NextBreadDemo1._0.Forms.Proveedor
                 _Proveedor.agregarProveedor(nombre, estado, nombreUsuario);
                 Txt_NombreProveedor.Clear();
                 Txt_NombreProveedor.Focus();
+                Frm_PantallaCarga pantallaCarga = (Frm_PantallaCarga)Application.OpenForms["Frm_PantallaCarga"];
+                if (pantallaCarga != null)
+                {
+                    pantallaCarga.Frm_EditarProductos.CargarDatosYConfigurarDGVProveedores();
+                    pantallaCarga.Frm_Inventario.CargarDatosYConfigurarDGV();
+                    pantallaCarga.Frm_EditarProveedor.CargarDatosYConfigurarDGV();
+                }
             }
             catch (Exception)
             {
